@@ -256,17 +256,19 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 
 /* Pricing cards */
 .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:56px}
-.pricing-card{padding:48px 36px;position:relative;transition:all .3s;overflow:hidden}
+.pricing-card{padding:48px 36px;position:relative;transition:all .3s;overflow:hidden;display:flex;flex-direction:column}
+.pricing-card .btn{margin-top:auto}
 .pricing-card::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(135deg,transparent 42%,rgba(255,255,255,.02) 50%,transparent 58%);pointer-events:none}
 .pricing-card-a{background:linear-gradient(135deg,rgba(255,255,255,.03),rgba(255,255,255,.01));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.06);box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 4px 20px rgba(0,0,0,.2)}
 .pricing-card-b{background:linear-gradient(135deg,rgba(212,175,55,.06),rgba(212,175,55,.02));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(212,175,55,.12);box-shadow:inset 0 1px 0 rgba(212,175,55,.08),0 8px 40px rgba(0,0,0,.3)}
 .pricing-card-b::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--gradient-gold)}
 .pricing-badge{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);padding:6px 14px;border:1px solid var(--border-gold);margin-bottom:20px}
+.pricing-badge-spacer{height:35px;margin-bottom:20px}
 .pricing-card h3{font-family:var(--font-display);font-size:1.4rem;font-weight:700;margin-bottom:12px}
 .pricing-amount{font-family:var(--font-display);font-size:2.4rem;font-weight:700;color:var(--gold);margin-bottom:16px}
 .pricing-amount span{font-size:.9rem;font-weight:400;color:var(--text2)}
 .pricing-card p{font-size:.9rem;color:var(--text2);line-height:1.65;margin-bottom:20px}
-.pricing-card .btn{width:100%;justify-content:center;text-align:center;font-size:.8rem;padding:14px 32px}
+.pricing-card .btn{width:100%;justify-content:center;text-align:center;font-size:.8rem;padding:14px 32px;margin-top:auto}
 
 /* Urgency */
 .urgency{padding:80px 0;text-align:center}
@@ -548,6 +550,7 @@ footer{border-top:1px solid rgba(255,255,255,.03);padding:48px 0}
 
     <div class="pricing-grid">
       <div class="pricing-card pricing-card-a reveal">
+        <div class="pricing-badge-spacer" aria-hidden="true"></div>
         <h3>Option A — Full Ownership</h3>
         <div class="pricing-amount">$85,000</div>
         <p>The complete program. Everything included. Zero revenue share — you keep 100% of every book sale from day one. Best for established experts who want maximum long-term returns.</p>
