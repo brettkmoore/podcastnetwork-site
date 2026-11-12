@@ -15,5 +15,19 @@
       "Read(~/.secrets/**)",
       "Read(~/.ssh/id_*)"
     ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ \"$CLAUDE_CODE_REMOTE\" = \"true\" ]; then cd \"$CLAUDE_PROJECT_DIR\" && corepack enable >/dev/null 2>&1; pnpm install --frozen-lockfile >/dev/null 2>&1 || echo \"dependency install failed\" >&2; fi; exit 0",
+            "timeout": 300
+          }
+        ]
+      }
+    ]
   }
 }
