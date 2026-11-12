@@ -8,10 +8,6 @@
       "Bash(git push origin main)",
       "Bash(git push origin HEAD:main)",
       "Bash(git reset --hard *)",
-      "Bash(vercel --prod *)",
-      "Bash(vercel deploy --prod *)",
-      "Read(./.env)",
-      "Read(./.env.*)",
       "Read(~/.secrets/**)",
       "Read(~/.ssh/id_*)"
     ]
