@@ -27,6 +27,7 @@ jobs:
       - name: typecheck
         run: pnpm run typecheck
       - name: lint
+        if: hashFiles('eslint.config.*', '.eslintrc*') != ''
         run: pnpm run lint
       - name: build
         run: pnpm run build
