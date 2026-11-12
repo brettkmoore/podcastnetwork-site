@@ -1,6 +1,6 @@
 # Claude reviews each pull request once when opened (and when marked ready).
 # Read-only: it can read the diff and comment, nothing else.
-# Needs the ANTHROPIC_API_KEY repo secret; skips cleanly without it.
+# Needs the CLAUDE_CODE_OAUTH_TOKEN (subscription) or ANTHROPIC_API_KEY repo secret; skips cleanly without one.
 # Expected usage: about 2 to 5 Actions minutes per review, plus API usage.
 name: claude-review
 on:
@@ -19,8 +19,8 @@ jobs:
       - name: Check for key
         id: key
         env:
-          K: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: if [ -n "$K" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ANTHROPIC_API_KEY not set; skipping review."; fi
+          K: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}${{ secrets.ANTHROPIC_API_KEY }}
+        run: if [ -n "$K" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "No Claude token or key set; skipping review."; fi
       - uses: actions/checkout@v4
         if: steps.key.outputs.ok == 'true'
         with:
@@ -28,6 +28,7 @@ jobs:
       - uses: anthropics/claude-code-action@v1
         if: steps.key.outputs.ok == 'true'
         with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           use_sticky_comment: true
