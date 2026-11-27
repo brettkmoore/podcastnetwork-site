@@ -1,0 +1,33 @@
+# Type, lint and build checks on pull requests. One job, cached dependencies.
+# Expected usage: about 2 to 4 Actions minutes per push to a pull request.
+name: checks
+on:
+  pull_request:
+concurrency:
+  group: checks-${{ github.head_ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: typecheck
+        run: pnpm run typecheck
+      - name: lint
+        if: hashFiles('eslint.config.*', '.eslintrc*') != ''
+        run: pnpm run lint
+      - name: build
+        run: pnpm run build
