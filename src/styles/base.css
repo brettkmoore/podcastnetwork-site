@@ -1,2 +1,0 @@
-/* Mona Sans loads through next/font/local in src/app/layout.tsx (preloaded,
- * font-display: swap) so the hero text LCP never waits on the font file. */
