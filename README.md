@@ -16,7 +16,7 @@ Production changes made to the mirror: removed Grok's builder script (`grok.com/
 
 The contact and pitch forms are client-side only (they show a thank-you message; nothing is sent anywhere yet).
 
-The current public build (v6) uses real podcast cover art as illustration, with the note "Example podcast artwork shown for illustration." The homepage H1 is "A group of shows that share support."
+The current public build (v7) keeps that artwork and H1, with smaller hero tiles, a cinematic gradient, and a mobile fix. The illustration note remains: "Example podcast artwork shown for illustration."
 
 ## Vercel
 
@@ -37,6 +37,7 @@ A push to `main` deploys `site/` to production as-is on both. Do not push to `ma
 
 ## Old site / rollback
 
-- `pre-template-2026-11-27` (95e01a4): the static collective redesign that was in production just before this v6 template rebuild (real covers and new H1). Promote mike-partners deploy `dpl_CkYoV4H7FzcAsRRSweagGqbqs9ds`, or revert the v6 commit, or rebuild from this tag.
+- `pre-v7-2026-11-27` (96e3650): the v6 production build (real covers and new H1) from just before the v7 hero fixes (smaller tiles, cinematic gradient, mobile). Promote mike-partners deploy `dpl_A3C2T75txc5PuLFroDqcYGh2JGfx`, or revert the v7 commit, or rebuild from this tag.
+- `pre-template-2026-11-27` (95e01a4): the static collective redesign that was in production just before the v6 template rebuild.
 - `pre-redesign-2026-11-27` (d42bec8): the previous Next.js site. Restoring it also needs the old Next.js Vercel settings.
 - Older history: tag `v0-legacy-2026-07-01`.
