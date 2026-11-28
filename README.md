@@ -17,7 +17,7 @@ Production changes made to the mirror: removed Grok's builder script (`grok.com/
 
 The contact and pitch forms POST JSON to `/api/contact` (Vercel serverless function, `api/contact.js`), which sends mail through Resend once `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and `CONTACT_FROM_EMAIL` are set. Until then the function returns 503 and the forms show an inline error.
 
-The current public build keeps the v7 artwork and H1, the mobile menu fix, and the forms front end, and adds the approved Podcast Network lockup/mark, favicons, and `/logo.png` (referenced by JSON-LD). The illustration note remains: "Example podcast artwork shown for illustration."
+The current public build keeps the v7 artwork and H1, the mobile menu fix, the forms front end, and the approved logo and favicons. The homepage hero no longer has the illustration caption; inner-page cover bands still include: "Example podcast artwork shown for illustration."
 
 ## Vercel
 
@@ -38,6 +38,7 @@ A push to `main` deploys `site/` to production as-is on both. Do not push to `ma
 
 ## Old site / rollback
 
+- `pre-caption-2026-11-28` (04b1d34): the production build from just before the homepage hero caption was removed (inner-page cover credits kept). Promote the previous mike-partners deploy, or revert this commit, or rebuild from this tag.
 - `pre-logo-2026-11-27` (eba55c6): the production build from just before the approved logo, favicons, and /logo.png go-live. Promote the previous mike-partners deploy, or revert this commit, or rebuild from this tag.
 - `pre-menu-2026-11-27` (b47e9ef): the v7 production build from just before the mobile menu fix and forms front end. Promote the previous mike-partners deploy, or revert this commit, or rebuild from this tag.
 - `pre-v7-2026-11-27` (96e3650): the v6 production build (real covers and new H1) from just before the v7 hero fixes (smaller tiles, cinematic gradient, mobile). Promote mike-partners deploy `dpl_A3C2T75txc5PuLFroDqcYGh2JGfx`, or revert the v7 commit, or rebuild from this tag.
